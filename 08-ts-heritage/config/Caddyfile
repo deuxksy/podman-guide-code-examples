@@ -1,0 +1,31 @@
+# Caddy 리버스 프록시 설정
+# 현재 기본 정적 파일 서버로 동작
+# 추후 rutorrent, whisparr, jellyfin 등의 경로를 추가하여 확장 가능
+
+:9091 {
+    root * /srv
+    file_server
+
+    encode gzip
+
+    log {
+        output file /var/log/caddy/access.log
+    }
+
+    header {
+        X-Content-Type-Options nosniff
+        X-Frame-Options DENY
+        Referrer-Policy no-referrer
+    }
+
+    # 추후 다중 서비스 설정 예시:
+    # handle_path /rutorrent* {
+    #     reverse_proxy rutorrent:8080
+    # }
+    # handle_path /whisparr* {
+    #     reverse_proxy whisparr:6969
+    # }
+    # handle_path /jellyfin* {
+    #     reverse_proxy jellyfin:8096
+    # }
+}

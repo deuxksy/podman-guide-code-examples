@@ -1,0 +1,9 @@
+# Environment variables with sensitive data
+.env
+
+# Tailscale state directory
+state/
+
+# Caddy data directories
+caddy-data/
+caddy-config/

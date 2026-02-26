@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heritage - Tailscale + Caddy</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: #667eea;
+            margin-top: 0;
+        }
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .info {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+        .stack {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .badge {
+            background: #667eea;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Heritage 서버가 실행 중입니다!</h1>
+
+        <div class="success">
+            <strong>성공!</strong> Tailscale + Caddy 설정이 올바르게 작동하고 있습니다.
+        </div>
+
+        <div class="info">
+            <h3>아키텍처</h3>
+            <p>이 페이지는 다음을 통해 제공됩니다:</p>
+            <ul>
+                <li><strong>HTTPS:</strong> Tailscale Serve가 종료 처리</li>
+                <li><strong>프록시:</strong> 포트 9091에서 실행 중인 Caddy</li>
+                <li><strong>콘텐츠:</strong> <code>/srv</code>의 정적 파일</li>
+            </ul>
+        </div>
+
+        <div class="stack">
+            <span class="badge">🔒 HTTPS</span>
+            <span class="badge">🐳 Tailscale</span>
+            <span class="badge">🌐 Caddy</span>
+        </div>
+
+        <div class="info">
+            <h3>향후 확장</h3>
+            <p>이 설정은 다중 서비스 호스팅으로 확장할 수 있습니다:</p>
+            <ul>
+                <li><code>/rutorrent</code> → rutorrent 컨테이너</li>
+                <li><code>/whisparr</code> → whisparr 컨테이너</li>
+                <li><code>/jellyfin</code> → jellyfin 컨테이너</li>
+            </ul>
+        </div>
+
+        <p style="color: #666; font-size: 14px;">
+            접속 URL: <code>https://heritage.bun-bull.ts.net</code>
+        </p>
+    </div>
+</body>
+</html>
