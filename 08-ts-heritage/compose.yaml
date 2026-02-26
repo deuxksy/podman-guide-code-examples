@@ -1,6 +1,6 @@
 services:
   heritage:
-    image: tailscale/tailscale:latest
+    image: tailscale/tailscale:v1.94.2
     container_name: heritage
     hostname: heritage
     environment:
@@ -19,7 +19,7 @@ services:
     restart: unless-stopped
 
   caddy:
-    image: caddy:latest
+    image: caddy:2.11.1
     container_name: caddy
     network_mode: service:heritage
     depends_on:
