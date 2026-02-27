@@ -16,17 +16,32 @@ services:
       - /dev/net/tun:/dev/net/tun
     cap_add:
       - net_admin
+    networks:
+      - ts-net
     restart: unless-stopped
 
   caddy:
     image: caddy:2.11.1
     container_name: caddy
-    network_mode: service:heritage
+    networks:
+      - ts-net
     depends_on:
       - heritage
+      - nginx
     volumes:
       - ./config/Caddyfile:/etc/caddy/Caddyfile
       - ./site:/srv
       - ./caddy-data:/data
       - ./caddy-config:/config
     restart: unless-stopped
+
+  nginx:
+    image: nginx:1.27-alpine
+    container_name: nginx
+    networks:
+      - ts-net
+    restart: unless-stopped
+
+networks:
+  ts-net:
+    driver: bridge

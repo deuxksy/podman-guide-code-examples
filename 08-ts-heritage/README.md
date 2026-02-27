@@ -64,6 +64,12 @@ podman compose up -d
 }
 ```
 
+## 테스트된 서비스
+
+### nginx
+- URL: `https://heritage.bun-bull.ts.net/nginx`
+- 설명: nginx welcome 페이지 (경로 기반 라우팅 테스트용)
+
 ## 트러블슈팅
 
 - Tailscale 로그: `podman compose logs heritage`

@@ -4,6 +4,11 @@
 
 :9091 {
     root * /srv
+
+    handle_path /nginx* {
+        reverse_proxy nginx:80
+    }
+
     file_server
 
     encode gzip
